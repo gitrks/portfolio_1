@@ -39,7 +39,7 @@ def lambda_handler(event, context):
         topic.publish(Subject="Portfolio deployed", Message="Portflio deployed successfully")
         if job:
             codepipeline = boto3.client('codepipeline')
-            codepipeline.put_job_suceess_result(jobId=job["id"])
+            codepipeline.put_job_success_result(jobId=job["id"])
     except:
         topic.publish(Subject="portfolio deploy failed", Message="The portfolio was not deployed successfully")
         raise
